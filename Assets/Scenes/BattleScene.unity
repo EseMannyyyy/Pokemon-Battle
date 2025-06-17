@@ -1372,12 +1372,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healthSlider: {fileID: 1320617774}
   _maxHealth: 150
+  _currentHealth: 0
   _onTakeDamage:
     m_PersistentCalls:
       m_Calls: []
+    m_CallsDirty: 1
   _onDie:
     m_PersistentCalls:
       m_Calls: []
+    m_CallsDirty: 1
 --- !u!1 &1128108089
 GameObject:
   m_ObjectHideFlags: 0
@@ -2400,12 +2403,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healthSlider: {fileID: 439004191}
   _maxHealth: 150
+  _currentHealth: 0
   _onTakeDamage:
     m_PersistentCalls:
       m_Calls: []
+    m_CallsDirty: 1
   _onDie:
     m_PersistentCalls:
       m_Calls: []
+    m_CallsDirty: 1
 --- !u!1 &2095720039
 GameObject:
   m_ObjectHideFlags: 0
