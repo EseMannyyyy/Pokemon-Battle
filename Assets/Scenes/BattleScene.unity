@@ -461,9 +461,33 @@ MonoBehaviour:
           m_StringArgument: AbraCry
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2007845803}
+        m_TargetAssemblyTypeName: BattleManager, Assembly-CSharp
+        m_MethodName: AddFighter
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1039176537}
+          m_ObjectArgumentAssemblyTypeName: Figther, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnTargetLost:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2007845803}
+        m_TargetAssemblyTypeName: BattleManager, Assembly-CSharp
+        m_MethodName: RemoveFighter
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1039176537}
+          m_ObjectArgumentAssemblyTypeName: Figther, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &191210579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1351,13 +1375,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1039176534}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7638634d7cc9dab4cb25e23aee882a70, type: 3}
+  m_Script: {fileID: 11500000, guid: 56570ce56d14b564895ec1fbb183a852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fighterName: Abra
-  _attackData: {fileID: 11400000, guid: 64c432e45038d1c43a0e02a812831a4e, type: 2}
-  _health: {fileID: 1039176537}
-  _characterAnimator: {fileID: 1039176535}
+  _healthSlider: {fileID: 1320617774}
+  _maxHealth: 150
+  _onTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  _onDie:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1039176537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1367,20 +1395,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 1039176534}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5de99e1b60d2a214e959121b0a9cac8b, type: 3}
+  m_Script: {fileID: 11500000, guid: 19ade39cd6dc4ef4a95e4ba066912cfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthSlider: {fileID: 1320617774}
-  _maxHealth: 150
-  _currentHealth: 0
-  _onTakeDamage:
+  _fighterNane: Abra
+  _attackData: {fileID: 11400000, guid: 0ee93d3b76dbc1545865f2c1fdd36c4d, type: 2}
+  _health: {fileID: 1039176536}
+  _characterAnimator: {fileID: 1039176535}
+  _onInitialize:
     m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
-  _onDie:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
+      m_Calls:
+      - m_Target: {fileID: 1039176536}
+        m_TargetAssemblyTypeName: Healt, Assembly-CSharp
+        m_MethodName: InitializeHealth
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1128108089
 GameObject:
   m_ObjectHideFlags: 0
@@ -1893,9 +1929,33 @@ MonoBehaviour:
           m_StringArgument: GreninjaCry
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2007845803}
+        m_TargetAssemblyTypeName: BattleManager, Assembly-CSharp
+        m_MethodName: AddFighter
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2070876833}
+          m_ObjectArgumentAssemblyTypeName: Figther, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnTargetLost:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2007845803}
+        m_TargetAssemblyTypeName: BattleManager, Assembly-CSharp
+        m_MethodName: RemoveFighter
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2070876833}
+          m_ObjectArgumentAssemblyTypeName: Figther, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1614670076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2093,6 +2153,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2007845802}
+  - component: {fileID: 2007845803}
   m_Layer: 0
   m_Name: BattleManager
   m_TagString: Untagged
@@ -2115,6 +2176,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2007845803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007845801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b30fdf3f4cbdcb1469e620fa40fc5df4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fighters: []
+  _fightersNeededToStart: 2
+  _onBattleStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  _onBattleEnded:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2054728469
 GameObject:
   m_ObjectHideFlags: 0
@@ -2382,13 +2463,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 2070876830}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7638634d7cc9dab4cb25e23aee882a70, type: 3}
+  m_Script: {fileID: 11500000, guid: 56570ce56d14b564895ec1fbb183a852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fighterName: Greninja
-  _attackData: {fileID: 11400000, guid: 45c7aec68da15c94a83c6560e52ef80a, type: 2}
-  _health: {fileID: 2070876833}
-  _characterAnimator: {fileID: 2070876831}
+  _healthSlider: {fileID: 439004191}
+  _maxHealth: 200
+  _onTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  _onDie:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2070876833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2398,20 +2483,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 2070876830}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5de99e1b60d2a214e959121b0a9cac8b, type: 3}
+  m_Script: {fileID: 11500000, guid: 19ade39cd6dc4ef4a95e4ba066912cfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthSlider: {fileID: 439004191}
-  _maxHealth: 150
-  _currentHealth: 0
-  _onTakeDamage:
+  _fighterNane: Greninja
+  _attackData: {fileID: 11400000, guid: c5514f969bcb1894d9ddc8b3cba08bc1, type: 2}
+  _health: {fileID: 2070876832}
+  _characterAnimator: {fileID: 2070876831}
+  _onInitialize:
     m_PersistentCalls:
       m_Calls: []
-    m_CallsDirty: 1
-  _onDie:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
 --- !u!1 &2095720039
 GameObject:
   m_ObjectHideFlags: 0
