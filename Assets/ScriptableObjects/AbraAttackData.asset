@@ -18,10 +18,10 @@ MonoBehaviour:
     maxDamage: 0
     attackDuration: 2
     animationName: AttackAbra1
-    soundName: AbraCry
+    soundName: AttackAbra
   - attackName: AttackAbra2
     minDamage: 50
     maxDamage: 0
     attackDuration: 2
     animationName: AttackAbra2
-    soundName: AbraCry
+    soundName: AttackAbra2

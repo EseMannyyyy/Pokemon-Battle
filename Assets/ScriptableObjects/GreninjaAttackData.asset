@@ -18,10 +18,10 @@ MonoBehaviour:
     maxDamage: 0
     attackDuration: 2
     animationName: AttackNinja1
-    soundName: GreninjaCry
+    soundName: AttackNinja
   - attackName: AttackNinja2
     minDamage: 50
     maxDamage: 0
     attackDuration: 2
     animationName: AttackNinja2
-    soundName: GreninjaCry
+    soundName: AttackNinja2

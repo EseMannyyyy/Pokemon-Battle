@@ -45,25 +45,27 @@ public class BattleManager : MonoBehaviour
     private IEnumerator BattleCoroutine()
     {
         _onBattleStarted?.Invoke();
-        while (_fighters.Count >= 1)
+        while (_fighters.Count > 1)
         {
             Figther attacker = _fighters[Random.Range(0, _fighters.Count)];
             Figther defender = _fighters[Random.Range(0, _fighters.Count)];
-            attacker.transform.LookAt(defender.transform);
-            defender.transform.LookAt(attacker.transform);
             while (defender == attacker)
             {
                 defender = _fighters[Random.Range(0, _fighters.Count)];
             }
+            attacker.transform.LookAt(defender.transform);
+            defender.transform.LookAt(attacker.transform);
             Attack attack = attacker.AttackData.attacks[Random.Range(0, attacker.AttackData.attacks.Length)];
             float damage = Random.Range(attack.minDamage, attack.maxDamage);
             attacker.CharacterAnimator.Play(attack.animationName);
+            SoundManager.instance.Play(attack.soundName);
             yield return new WaitForSeconds(attack.attackDuration);
             defender.Healt.TakeDamage(damage);
             if (defender.Healt.CurrentHealth <= 0)
             {
                 RemoveFighter(defender);
             }
+            yield return new WaitForSeconds(2f) ;
         }
         _onBattleEnded?.Invoke();
     }
