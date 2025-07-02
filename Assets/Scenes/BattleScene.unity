@@ -467,7 +467,7 @@ MonoBehaviour:
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1039176537}
-          m_ObjectArgumentAssemblyTypeName: Figther, Assembly-CSharp
+          m_ObjectArgumentAssemblyTypeName: Fighter, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -994,6 +994,7 @@ GameObject:
   - component: {fileID: 758224796}
   - component: {fileID: 758224798}
   - component: {fileID: 758224797}
+  - component: {fileID: 758224799}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -1053,7 +1054,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 150
+  m_Text: 100
 --- !u!222 &758224798
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1062,6 +1063,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 758224795}
   m_CullTransparentMesh: 1
+--- !u!95 &758224799
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 758224795}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 820179e265afc34419691b409e8b7418, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1206,6 +1229,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1014042023}
+  - {fileID: 1538234054}
+  - {fileID: 1297060863}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1412,8 +1437,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90d30d7d263765e459c1fb7cd8e11e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _textAnimator: {fileID: 0}
-  _animationName: 
+  _textAnimator: {fileID: 758224799}
+  _animationName: ShowDamageText
+  _text: {fileID: 758224797}
 --- !u!1 &1028049835
 GameObject:
   m_ObjectHideFlags: 0
@@ -1440,7 +1466,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1028049835}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2f2443343f2dd94cb1b7c54135d5b33, type: 3}
+  m_Script: {fileID: 11500000, guid: 586bb8900b165f64b9709bbd3ef476d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToInstantiate: {fileID: 2433282508537954060, guid: 3ef3ae421f71c5c4e97fe12dc2fc6312,
@@ -1612,65 +1638,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1039176534}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56570ce56d14b564895ec1fbb183a852, type: 3}
+  m_Script: {fileID: 11500000, guid: eb14dd5f678fbbf44acd29ccb76caa30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthSlider: {fileID: 1320617774}
-  _maxHealth: 150
+  _healthSlider: {fileID: 0}
+  _maxHealth: 100
   _onTakeDamage:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1395770105}
-        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
-        m_MethodName: Play
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: AbraCry
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1039176535}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: Play
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Damage
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DamageText, Assembly-CSharp
-        m_MethodName: ShowDamage
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Damage
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   _onDie:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1039176535}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: Play
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: AbraDie
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1039176537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1680,28 +1658,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1039176534}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19ade39cd6dc4ef4a95e4ba066912cfd, type: 3}
+  m_Script: {fileID: 11500000, guid: d98ffbc1da9f43241aef996060ac8d0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fighterNane: Abra
-  _attackData: {fileID: 11400000, guid: 0ee93d3b76dbc1545865f2c1fdd36c4d, type: 2}
-  _health: {fileID: 1039176536}
-  _characterAnimator: {fileID: 1039176535}
+  _fighterName: 
+  _attackData: {fileID: 0}
+  _health: {fileID: 0}
+  _characterAnimator: {fileID: 0}
   _onInitialize:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1039176536}
-        m_TargetAssemblyTypeName: Healt, Assembly-CSharp
-        m_MethodName: InitializeHealth
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+  _winAnimationName: 
+  _winSoundName: 
 --- !u!1 &1128108089
 GameObject:
   m_ObjectHideFlags: 0
@@ -1954,6 +1922,124 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1241687932}
   m_CullTransparentMesh: 1
+--- !u!1 &1297060862
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1297060863}
+  - component: {fileID: 1297060867}
+  - component: {fileID: 1297060866}
+  - component: {fileID: 1297060865}
+  - component: {fileID: 1297060864}
+  m_Layer: 5
+  m_Name: MessageFrame
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1297060863
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297060862}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 1653725121}
+  m_Father: {fileID: 904674318}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -289}
+  m_SizeDelta: {x: 1226.52, y: 275}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &1297060864
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297060862}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 89fec6e18c649d84595af78383455ac3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1297060865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297060862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0fd35282d4aa654a92f6fb9f1d08f48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _text: {fileID: 1653725122}
+  _timeBetweenLetters: 0.05
+  _timeToDisappear: 1
+  _animator: {fileID: 1297060864}
+  _showTextAnimationName: ShowText
+  _hideTextAnimationName: HideText
+--- !u!114 &1297060866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297060862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.990566, g: 0.6494749, b: 0.90642816, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 5e95c0e89d8def541a5edd93d0edc79e, type: 3}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1297060867
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297060862}
+  m_CullTransparentMesh: 1
 --- !u!1 &1320617772
 GameObject:
   m_ObjectHideFlags: 0
@@ -2070,7 +2156,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1395770104}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b6cbea51f5edbe49b2c4af6de46b2a2, type: 3}
+  m_Script: {fileID: 11500000, guid: 540b8047f73192244842aa799067ea39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   audioPrefix: 
@@ -2130,6 +2216,160 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1538234053
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1538234054}
+  - component: {fileID: 1538234056}
+  - component: {fileID: 1538234055}
+  - component: {fileID: 1538234058}
+  - component: {fileID: 1538234057}
+  m_Layer: 5
+  m_Name: Timer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1538234054
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538234053}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 904674318}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 300, y: 300}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1538234055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538234053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 50b874275c35ae04b82b2b8edcfb53e1, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1538234056
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538234053}
+  m_CullTransparentMesh: 1
+--- !u!114 &1538234057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538234053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86ec565548dd97040968db72a8772ad8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 0}
+  timerTextures:
+  - {fileID: 21300000, guid: 5d8e42d865f84174b84ce04f619201ec, type: 3}
+  - {fileID: 21300000, guid: 4fd96e0ef7a763248ace2ba969c0f5a4, type: 3}
+  - {fileID: 21300000, guid: 0e5397a23b622014ebb2c9761cf98d66, type: 3}
+  - {fileID: 21300000, guid: 50b874275c35ae04b82b2b8edcfb53e1, type: 3}
+  _soundNames:
+  - go
+  - 1
+  - 2
+  - 3
+  _timerImage: {fileID: 1538234055}
+  showTimerAnimationName: ShowSecond
+  _onSecondPassed:
+    m_PersistentCalls:
+      m_Calls: []
+  _onTimerFinished:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2007845803}
+        m_TargetAssemblyTypeName: BattleManager, Assembly-CSharp
+        m_MethodName: StartBattle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1395770105}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: PlayMusic
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: StartBattle
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!95 &1538234058
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538234053}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 387d83f8db5b3e947aa6b0f76433ecc3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1614670073
 GameObject:
   m_ObjectHideFlags: 0
@@ -2303,6 +2543,85 @@ MonoBehaviour:
   mCastedBehaviour: {fileID: 1614670076}
   mMeshFilter: {fileID: 0}
   mMeshRenderer: {fileID: 0}
+--- !u!1 &1653725120
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1653725121}
+  - component: {fileID: 1653725123}
+  - component: {fileID: 1653725122}
+  m_Layer: 5
+  m_Name: DescriptionText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1653725121
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653725120}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1297060863}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 35, y: 10.199989}
+  m_SizeDelta: {x: -651.79004, y: -173.40002}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1653725122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653725120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 309f0ba8b05c37d4dba5fe97fb8d344a, type: 3}
+    m_FontSize: 300
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 11
+    m_MaxSize: 300
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'sdfa s asdfa sdfa sdf asdf asdf asdfasd fasdf asdf sdfRE '
+--- !u!222 &1653725123
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653725120}
+  m_CullTransparentMesh: 1
 --- !u!1 &1817694654
 GameObject:
   m_ObjectHideFlags: 0
@@ -2470,17 +2789,92 @@ MonoBehaviour:
   m_GameObject: {fileID: 2007845801}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b30fdf3f4cbdcb1469e620fa40fc5df4, type: 3}
+  m_Script: {fileID: 11500000, guid: 0186259b964c98346ba0776dcdc016b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _fighters: []
   _fightersNeededToStart: 2
   _onBattleStarted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1538234057}
+        m_TargetAssemblyTypeName: Timer, Assembly-CSharp
+        m_MethodName: StartTimer
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 3
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _onBattleEnded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1395770105}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: StopMusic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1395770105}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: FinishSound
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onBattleStopped:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1538234057}
+        m_TargetAssemblyTypeName: Timer, Assembly-CSharp
+        m_MethodName: StopTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1395770105}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: StopMusic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1297060865}
+        m_TargetAssemblyTypeName: FrameText, Assembly-CSharp
+        m_MethodName: StopText
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &2054728469
 GameObject:
   m_ObjectHideFlags: 0
@@ -2753,60 +3147,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healthSlider: {fileID: 439004191}
   _maxHealth: 200
+  _currentHealth: 0
   _onTakeDamage:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1395770105}
-        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
-        m_MethodName: Play
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: GreninjaCry
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2070876831}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: Play
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Damage
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DamageText, Assembly-CSharp
-        m_MethodName: ShowDamage
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Damage
-          m_BoolArgument: 0
-        m_CallState: 2
+      - {m_Target: {fileID: 1395770105}, m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp, m_MethodName: Play, m_Mode: 5, m_Arguments: {m_ObjectArgument: {fileID: 0},
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, m_IntArgument: 0,
+          m_FloatArgument: 0, m_StringArgument: GreninjaCry, m_BoolArgument: 0}, m_CallState: 2}
+      - {m_Target: {fileID: 2070876831}, m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine, m_MethodName: Play, m_Mode: 5, m_Arguments: {m_ObjectArgument: {fileID: 0},
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, m_IntArgument: 0,
+          m_FloatArgument: 0, m_StringArgument: Damage, m_BoolArgument: 0}, m_CallState: 2}
+      - {m_Target: {fileID: 1014042024}, m_TargetAssemblyTypeName: DamageText, Assembly-CSharp, m_MethodName: ShowDamage, m_Mode: 0, m_Arguments: {m_ObjectArgument: {fileID: 0},
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, m_IntArgument: 0,
+          m_FloatArgument: 0, m_StringArgument: Damage, m_BoolArgument: 0}, m_CallState: 2}
+    m_CallsDirty: 1
   _onDie:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2070876831}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: Play
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: NinjaDie
-          m_BoolArgument: 0
-        m_CallState: 2
+      - {m_Target: {fileID: 2070876831}, m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine, m_MethodName: Play, m_Mode: 5, m_Arguments: {m_ObjectArgument: {fileID: 0},
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, m_IntArgument: 0,
+          m_FloatArgument: 0, m_StringArgument: NinjaDie, m_BoolArgument: 0}, m_CallState: 2}
+      - {m_Target: {fileID: 1395770104}, m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine, m_MethodName: Play, m_Mode: 5, m_Arguments: {m_ObjectArgument: {fileID: 0},
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, m_IntArgument: 0,
+          m_FloatArgument: 0, m_StringArgument: GreninjaCry, m_BoolArgument: 0}, m_CallState: 2}
+    m_CallsDirty: 1
 --- !u!114 &2070876833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2826,18 +3190,15 @@ MonoBehaviour:
   _onInitialize:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2070876832}
-        m_TargetAssemblyTypeName: Healt, Assembly-CSharp
-        m_MethodName: InitializeHealth
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      - {m_Target: {fileID: 2070876832}, m_TargetAssemblyTypeName: Healt, Assembly-CSharp, m_MethodName: InitializeHealth, m_Mode: 1, m_Arguments: {m_ObjectArgument: {fileID: 0},
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, m_IntArgument: 0,
+          m_FloatArgument: 0, m_StringArgument: , m_BoolArgument: 0}, m_CallState: 2}
+      - {m_Target: {fileID: 2070876831}, m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine, m_MethodName: Play, m_Mode: 5, m_Arguments: {m_ObjectArgument: {fileID: 0},
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, m_IntArgument: 0,
+          m_FloatArgument: 0, m_StringArgument: Idle, m_BoolArgument: 0}, m_CallState: 2}
+    m_CallsDirty: 1
+  _winAnimationName: 
+  _winSoundName: 
 --- !u!1 &2095720039
 GameObject:
   m_ObjectHideFlags: 0

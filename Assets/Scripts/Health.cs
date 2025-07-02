@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class Healt : MonoBehaviour
+public class Health : MonoBehaviour
 {
     [SerializeField]
     private Slider _healthSlider;
@@ -11,13 +11,13 @@ public class Healt : MonoBehaviour
     private float _currentHealth;
     public float CurrentHealth => _currentHealth;
     [SerializeField]
-    private UnityEvent<float> _onTakeDamage;
+    private UnityEvent<DamageTarget> _onTakeDamage;
     [SerializeField]
     private UnityEvent _onDie;
-    public void TakeDamage(float damage)
+    public void TakeDamage(DamageTarget damageTarget)
     {
-        _currentHealth -= damage;
-        _onTakeDamage.Invoke(damage);
+        _currentHealth -= damageTarget.damage;
+        _onTakeDamage.Invoke(damageTarget);
         if (_currentHealth <= 0)
         {
             Die();

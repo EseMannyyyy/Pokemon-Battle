@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class DamageText : MonoBehaviour
@@ -8,18 +7,18 @@ public class DamageText : MonoBehaviour
     private Animator _textAnimator;
     [SerializeField]
     private string _animationName;
+    [SerializeField]
     private Text _text;
     private void Awake()
     {
-        _text = GetComponent<Text>();
+        _text.text = string.Empty;
     }
     public void ShowDamage(DamageTarget damageTarget)
     {
-        _text.text = damageTarget.damage.ToString();
+        _text.text = damageTarget.damage.ToString("F0");
         transform.position = Camera.main.WorldToScreenPoint(damageTarget.target.position);
         _textAnimator.Play(_animationName);
     }
-
 }
 
 [System.Serializable]
@@ -27,7 +26,7 @@ public class DamageTarget
 {
     public Transform target;
     public float damage;
-    public void setDamageTarget(Transform target, float damage)
+    public void SetDamageTarget(Transform target, float damage)
     {
         this.target = target;
         this.damage = damage;
